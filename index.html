@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>javascript 3d</title>
+        
+        <style>
+            body {
+                margin: 0;
+                height: 100vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            #controls {
+                position: fixed;
+                top: 0px;
+                left: 0px;
+                width: 30rem;
+                display: grid;
+                grid-template-columns: 7rem 1fr 2rem;
+                background: white;
+            }
+            
+            canvas {
+                height: 90vh;
+                width: 90vh;
+                border: 1px solid #888;
+            }
+        </style>
+        
+        <script src="3d.js"></script>
+    </head>
+    <body>
+        <div id="controls">
+            <label for="rotation">Rotation: </label>
+            <input id="rotation-slider" name="rotation" type="range" min="0" max="360" step="any" oninput="setRotation(document.getElementById('rotation-slider').value * (Math.PI / 180))">
+            <span id="rotation-display">0&deg;</span>
+            
+            <label for="x">X: </label>
+            <input type="range" id="x-slider" name="x" min="-3" max="3" step="any" oninput="setX(parseFloat(document.getElementById('x-slider').value))">
+            <span id="x-display">0</span>
+            
+            <label for="y">Y: </label>
+            <input type="range" id="y-slider" name="y" min="-3" max="3" step="any" oninput="setY(parseFloat(document.getElementById('y-slider').value))">
+            <span id="y-display">0</span>
+            
+            <label for="z">Z: </label>
+            <input type="range" id="z-slider" name="z" min="-3" max="3" step="any" oninput="setZ(parseFloat(document.getElementById('z-slider').value))">
+            <span id="z-display">0</span>
+        </div>
+        <canvas id="canvas"></canvas>
+    </body>
+</html>
